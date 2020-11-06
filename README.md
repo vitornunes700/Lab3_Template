@@ -7,7 +7,7 @@ utilizando este padrão.
 
 1. Crie a interface `Statistic` com o método:
 
-    `public double compute(Iterable<GradeEntry> grades)`
+    `double compute(Iterable<StudentGrade> grades)`
 
 2. Crie três concretizações desta interface por forma a poder calcular três
 estatísticas, nomeadamente **média aritmética**, **nota mínima** e **nota máxima**; 

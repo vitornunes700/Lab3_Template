@@ -47,7 +47,7 @@ public class CourseGrades {
         return oldGrade;
     }
 
-    public Iterable<StudentGrade> list() {
+    public Collection<StudentGrade> list() {
         List<StudentGrade> list = new ArrayList<>( results.values() );
         list.sort((g1, g2) -> g1.getName().compareToIgnoreCase(g2.getName()));
         return list;

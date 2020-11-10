@@ -17,9 +17,14 @@ utilizando este padrão.
     `double compute(List<StudentGrade> grades)`
 
 2. Crie três concretizações desta interface por forma a poder calcular três
-    estatísticas, nomeadamente **média aritmética**, **nota mínima** e **nota máxima**; 
+    estatísticas, nomeadamente **média aritmética**, **nota mais baixa** e **nota mais alta**; 
 
    * No caso de o conjunto de notas ser vazio, deve ser devolvido o valor -1.
+   
+   * Para os alunos fornecidos no projeto, os resultados esperados são:
+     * Média: `13.16`
+     * Nota mais baixa: `6`
+     * Nota mais alta: `20`
 
 3. Adicione um atributo do tipo `Statistic` à classe **CourseGrades** e os métodos `void changeStatistic(Statistic s)` e `double computeStatistic()`; a estatística por "omissão" calcula a média.
 
@@ -41,3 +46,9 @@ Adicionalmente, pretende-se dar uso ao padrão *Strategy* para permitir alterar 
 ## Nível Avançado (Autónomo)
 
 Pretende-se implementar o padrão de software **DAO**, que é uma versão de padrão *Strategy* utilizado na persistência de dados.
+
+**Nota:** Este padrão será lecionado durante as aulas TPs. Assim que o aprender, tente aplicá-lo a este problema.
+
+1. Aplique o padrão **DAO** na persistência de informação relativamente às notas contidas na classe `CourseGrades`.
+
+2. Elabore outro método `main` que permita verificar a persistência dos dados entre execuções do programa.

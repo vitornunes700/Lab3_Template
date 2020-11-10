@@ -4,6 +4,8 @@ import java.util.Objects;
 
 /**
  * An instance of this class identifies a student and his grade.
+ *
+ * For all purposes, two students are considered the same ("equals" criteria) if they have the same ID.
  */
 public class StudentGrade {
 

@@ -12,7 +12,6 @@ public class HigherGrade implements Statistic{
                 g = s.getGrade();
             }
         }
-
         return g;
     }
 }

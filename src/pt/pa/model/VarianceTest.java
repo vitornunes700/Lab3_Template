@@ -1,39 +1,12 @@
-package pt.pa;
+package pt.pa.model;
 
-import pt.pa.model.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class Main {
+class VarianceTest {
 
-    public static void main(String[] args) {
-
-        CourseGrades grades = generate_example();
-
-        grades.changeSorting(new SortName());
-        System.out.println(grades.toString() + "\n");
-
-        grades.changeSorting(new SortNumber());
-        System.out.println(grades.toString() + "\n");
-
-        grades.changeSorting(new SortGrade());
-        System.out.println(grades.toString() + "\n");
-
-        grades.changeStatistic(new ArithmeticAverage());
-        System.out.println("Arithmetic average: " + grades.computeStatistic());
-
-        grades.changeStatistic(new HigherGrade());
-        System.out.println("Higher grade: " + grades.computeStatistic());
-
-        grades.changeStatistic(new LowerGrade());
-        System.out.println("Lower grade: " + grades.computeStatistic());
-
-        grades.changeStatistic(new Variance());
-        System.out.println("Variance: " + grades.computeStatistic());
-
-    }
-
-    private static CourseGrades generate_example() {
+    @org.junit.jupiter.api.Test
+    void compute() {
         CourseGrades instance = new CourseGrades("Programação Avançada");
-
         instance.add( new StudentGrade("996693","Jada Head",17));
         instance.add( new StudentGrade("372930","Tad Mccall",18));
         instance.add( new StudentGrade("948974","Roanna Cameron",9));
@@ -135,7 +108,14 @@ public class Main {
         instance.add( new StudentGrade("251431","Anastasia Mendez",10));
         instance.add( new StudentGrade("271691","Brandon Hartman",13));
 
-        return instance;
+        instance.changeStatistic(new Variance());
+        assertEquals(17.45040000000008, instance.computeStatistic());
+    }
 
+    @org.junit.jupiter.api.Test
+    void computeEmptyList() {
+        CourseGrades instance = new CourseGrades("Programação Avançada");
+        instance.changeStatistic(new Variance());
+        assertEquals(-1, instance.computeStatistic());
     }
 }

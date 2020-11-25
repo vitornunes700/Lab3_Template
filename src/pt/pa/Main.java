@@ -1,7 +1,6 @@
 package pt.pa;
 
-import pt.pa.model.CourseGrades;
-import pt.pa.model.StudentGrade;
+import pt.pa.model.*;
 
 public class Main {
 
@@ -9,7 +8,23 @@ public class Main {
 
         CourseGrades grades = generate_example();
 
-        System.out.println(grades);
+        grades.changeSorting(new SortName());
+        System.out.println(grades.toString() + "\n");
+
+        grades.changeSorting(new SortNumber());
+        System.out.println(grades.toString() + "\n");
+
+        grades.changeSorting(new SortGrade());
+        System.out.println(grades.toString() + "\n");
+
+        grades.changeStatistic(new ArithmeticAverage());
+        System.out.println("Arithmetic average: " + grades.computeStatistic());
+
+        grades.changeStatistic(new HigherGrade());
+        System.out.println("Higher grade: " + grades.computeStatistic());
+
+        grades.changeStatistic(new LowerGrade());
+        System.out.println("Lower grade: " + grades.computeStatistic());
 
     }
 
@@ -118,5 +133,6 @@ public class Main {
         instance.add( new StudentGrade("271691","Brandon Hartman",13));
 
         return instance;
+
     }
 }
